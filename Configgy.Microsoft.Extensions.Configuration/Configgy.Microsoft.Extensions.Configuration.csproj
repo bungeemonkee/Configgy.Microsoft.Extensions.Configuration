@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.5</TargetFramework>
+    <Version>1.0.1-beta1</Version>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Description>Configgy extensions to incorporate Microsoft.Extensions.Configuration configuration mechanisms</Description>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/bungeemonkee/Configgy.Microsoft.Extensions.Configuration/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/bungeemonkee/Configgy.Microsoft.Extensions.Configuration</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/bungeemonkee/Configgy.Microsoft.Extensions.Configuration</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Configgy, config, configuration, Microsoft.Extensions.Configuration</PackageTags>
+    <AssemblyVersion>1.0.1.1</AssemblyVersion>
+    <FileVersion>1.0.1.1</FileVersion>
+    <PackageIconUrl>https://github.com/bungeemonkee/Configgy.Microsoft.Extensions.Configuration/raw/master/icon.png</PackageIconUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard1.5\Configgy.Microsoft.Extensions.Configuration.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard1.5\Configgy.Microsoft.Extensions.Configuration.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Configgy" Version="3.0.2-rc1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.1" />
+  </ItemGroup>
+
+</Project>

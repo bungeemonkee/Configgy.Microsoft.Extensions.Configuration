@@ -1,0 +1,41 @@
+init:
+  - git config --global core.autocrlf true
+
+version: '{branch}-{build}'
+
+image: Visual Studio 2017
+
+skip_tags: true
+
+configuration: Release
+platform: Any CPU
+
+shallow_clone: true
+
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: 1P24UYqkiL9SZIRD4wLBUnAMPGon4UEDaempIH09rLn354ltTkUoGTKNqf9+9U+d
+
+before_build:
+- cmd: _build\restore.bat Configgy.Microsoft.Extensions.Configuration
+    
+build_script:
+- cmd: _build\build.bat Configgy.Microsoft.Extensions.Configuration
+
+test_script:
+- cmd: _build\test.bat Configgy.Microsoft.Extensions.Configuration
+
+after_test:
+- cmd: _build\package.bat Configgy.Microsoft.Extensions.Configuration
+
+artifacts:
+- path: '*.nupkg'
+  name: Nuget Package
+
+deploy:
+- provider: NuGet
+  api_key:
+    secure: P2oh37pn3l7Tp9qTP87aOB0GFxg8WnlFyV8n3p1eqMS5aUVur1Yg3xQ2inbIDOCr
+  skip_symbols: false
+  on:
+    branch: master
