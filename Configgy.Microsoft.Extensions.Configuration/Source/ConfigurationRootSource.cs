@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 using Configgy.Source;
 using Microsoft.Extensions.Configuration;
@@ -25,7 +26,7 @@ namespace Configgy.Microsoft.Extensions.Configuration.Source
             var environment = Environment.GetEnvironmentVariable(environmentVariableName);
 
             var builder = new ConfigurationBuilder()
-            .SetBasePath(AppContext.BaseDirectory)
+            .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
             .AddJsonFile($"appsettings.{environment}.json", optional: true, reloadOnChange: true)
             .AddEnvironmentVariables();
