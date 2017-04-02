@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.5</TargetFramework>
-    <Version>1.0.1-beta1</Version>
+    <Version>1.0.1-beta2</Version>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Description>Configgy extensions to incorporate Microsoft.Extensions.Configuration configuration mechanisms</Description>
     <PackageLicenseUrl>https://raw.githubusercontent.com/bungeemonkee/Configgy.Microsoft.Extensions.Configuration/master/LICENSE</PackageLicenseUrl>
@@ -10,8 +10,8 @@
     <RepositoryUrl>https://github.com/bungeemonkee/Configgy.Microsoft.Extensions.Configuration</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Configgy, config, configuration, Microsoft.Extensions.Configuration</PackageTags>
-    <AssemblyVersion>1.0.1.1</AssemblyVersion>
-    <FileVersion>1.0.1.1</FileVersion>
+    <AssemblyVersion>1.0.1.2</AssemblyVersion>
+    <FileVersion>1.0.1.2</FileVersion>
     <PackageIconUrl>https://github.com/bungeemonkee/Configgy.Microsoft.Extensions.Configuration/raw/master/icon.png</PackageIconUrl>
   </PropertyGroup>
 
