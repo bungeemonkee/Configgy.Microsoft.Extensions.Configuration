@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Configgy.Source;
 using Microsoft.Extensions.Configuration;
@@ -52,18 +53,28 @@ namespace Configgy.Microsoft.Extensions.Configuration.Source
         /// <returns>True if the config value was found in the source, false otherwise.</returns>
         public override bool Get(string valueName, PropertyInfo property, out string value)
         {
-            try
+            // Get the prefix (if there is one)
+            var prefix = (property as ICustomAttributeProvider)?.GetCustomAttributes(true).OfType<ConfigurationRootPrefixAttribute>().SingleOrDefault();
+
+            // The initial section is the root configuration
+            var section = ConfigurationRoot as IConfiguration;
+
+            // If there is a prefix get the value from the section
+            if (prefix?.Prefixes != null)
             {
-                value = ConfigurationRoot[valueName];
-                if (value == null) return false;
-            }
-            catch
-            {
-                value = null;
-                return false;
+                foreach (var p in prefix.Prefixes)
+                {
+                    section = section.GetSection(p);
+                    if (section != null) continue;
+
+                    value = null;
+                    return false;
+                }
             }
 
-            return true;
+            // Get the value from the current 
+            value = section[valueName];
+            return value != null;
         }
     }
 }
